@@ -73,7 +73,9 @@ Create the following environment variables. Make the appropriate modifications
     export GIT_REPO_CAMEL_AMQ=https://github.com/gbengataylor/karaf2-camel-amq-log.git
 
     export OPENSHIFT_BROKER_APPLICATION_NAME=broker
+    
+    export IMAGE_BUILD_VERSION=2.0
 
 Deploy the camel route
 
-    oc new-app --template=s2i-karaf2-camel-amq --param APP_NAME=${OPENSHIFT_CAMEL_APPLICATION_NAME} GIT_REPO=${GIT_REPO_CAMEL_NO_AMQ}  --param SERVICE_NAME=${OPENSHIFT_CAMEL_APPLICATION_NAME} --param ACTIVEMQ_SERVICE_NAME=${OPENSHIFT_BROKER_APPLICATION_NAME}-amq-tcp --param ACTIVEMQ_USERNAME=admin --param ACTIVEMQ_PASSWORD=password -l app=${OPENSHIFT_CAMEL_APPLICATION_NAME}
+    oc new-app --template=s2i-karaf2-camel-amq --param APP_NAME=${OPENSHIFT_CAMEL_APPLICATION_NAME} GIT_REPO=${GIT_REPO_CAMEL_NO_AMQ}  --param SERVICE_NAME=${OPENSHIFT_CAMEL_APPLICATION_NAME} --param ACTIVEMQ_SERVICE_NAME=${OPENSHIFT_BROKER_APPLICATION_NAME}-amq-tcp --param ACTIVEMQ_USERNAME=admin --param ACTIVEMQ_PASSWORD=password --param BUILDER_VERSION=${IMAGE_BUILD_VERSION} --param GIT_REF=master -l app=${OPENSHIFT_CAMEL_APPLICATION_NAME}
