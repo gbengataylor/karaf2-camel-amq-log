@@ -51,7 +51,7 @@
       moved to a directory for that country. The <otherwise/> element ensures that any file that does not meet the
       requirements for either of the <when/> elements will be moved to the work/jms/output/others directory.
     -->
-        <route id="jms-cbr-route" streamCache="true">
+        <route id="jms-cbr-route"> <!-- streamCache="true"> -->
             <from id="route-from-incoming-orders" uri="activemq:incomingOrders"/>
             <log id="route-log-incoming-order" message="Received Order from Queue"/>
             <choice id="route-choice-country">
