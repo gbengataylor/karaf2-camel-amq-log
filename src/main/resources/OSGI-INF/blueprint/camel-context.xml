@@ -53,7 +53,7 @@
     -->
         <route id="jms-cbr-route"> <!-- streamCache="true"> -->
             <from id="route-from-incoming-orders" uri="activemq:incomingOrders"/>
-            <log id="route-log-incoming-order" message="Received Order from Queue"/>
+            <log id="route-log-incoming-order" message="Received Order ${file:name} from Queue"/>
             <choice id="route-choice-country">
                 <when id="route-when-uk">
                     <xpath>/order/customer/country = 'UK'</xpath>
